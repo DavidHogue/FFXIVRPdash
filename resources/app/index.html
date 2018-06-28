@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  		<link rel='stylesheet' type='text/css' href='styles.css'>
+        <script type="text/javascript" src="java.js"></script>
+        <title>FFXIV Roleplay Toolbox</title>
+	</head>
+    
+	<body>
+        <div class=inputarea>
+            <form class=wordarea>
+                <fieldset>
+
+                    <ul id=chantab>
+                        <li>Select Channel:</li>
+                        <li><button class=toParty type="button">Party</button></li>
+                        <li><button class=toSay type="button">Say</button></li>
+                        <li><button class=toYell type="button">Yell</button></li>
+                        <li><button class=toEmote type="button">Emote</button></li>
+                    </ul>
+
+                    <p><textarea id=composition rows="16" cols="100"></textarea></p>
+                    
+                    <div class=bottomBar>
+                        <button class=divide type="button">Divide into Posts</button>
+                        <button class=doPreview type="button">Preview</button>
+                        <button class=copyto type="button">Copy to Clipboard</button>
+                        <button class=clear type="button">Clear</button>
+                        <div class=counttab><b class=count>0</b> characters requiring <i class=countnum>0</i> post(s).</div>
+                    </div>
+                        
+                </fieldset>
+            </form>            
+        </div>
+
+        <script>
+        // Require the electron spellchecker
+            const electronSpellchecker = require('electron-spellchecker');
+
+        // Retrieve required properties
+            const SpellCheckHandler = electronSpellchecker.SpellCheckHandler;
+            const ContextMenuListener = electronSpellchecker.ContextMenuListener;
+            const ContextMenuBuilder = electronSpellchecker.ContextMenuBuilder;
+
+        // Configure the spellcheckhandler
+            window.spellCheckHandler = new SpellCheckHandler();
+            window.spellCheckHandler.attachToInput();
+
+        // Start off as "US English, America"
+            window.spellCheckHandler.switchLanguage('en-US');
+
+        // Create the builder with the configured spellhandler
+            let contextMenuBuilder = new ContextMenuBuilder(window.spellCheckHandler);
+
+        // Add context menu listener
+            let contextMenuListener = new ContextMenuListener((info) => {
+                contextMenuBuilder.showPopupMenu(info);
+            });
+        </script>
+        
+        <div class=hiddenpreview></div>
+        <div class=closeIt>X</div>
+    </body>
+</html>
