@@ -6,7 +6,7 @@ let currentWindow;
 
 function createWindow() {
     currentWindow = new BrowserWindow({
-        height: 550, x:0, y:0, frame: false, backgroundColor: '#1e1e1e', resizable: false, icon:'ffxivicon.png',
+        height: 680, x:0, y:0, frame: true, autoHideMenuBar: true, backgroundColor: '#1e1e1e', resizable: false, icon:'ffxivicon.png',
         webPreferences: {
             nodeIntegration: true
         }});
