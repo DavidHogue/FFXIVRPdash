@@ -61,8 +61,9 @@ function splitintoposts(ofafield, prefix) {
 
     while(data.length > 490) {
         pagenumber += 1;
-        formatted += data.slice(0, 490) + " (" + pagenumber + "/" + pagecount + ")";
-        data = "\n" + "\n" + prefix + data.slice(490);
+        var splitIndex = data.lastIndexOf(' ', 490);
+        formatted += data.slice(0, splitIndex) + " (" + pagenumber + "/" + pagecount + ")";
+        data = "\n" + "\n" + prefix + data.slice(splitIndex + 1);
     }
 
     data = formatted + data;
