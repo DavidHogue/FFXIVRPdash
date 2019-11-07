@@ -5,7 +5,11 @@ const url = require('url');
 let currentWindow;
 
 function createWindow() {
-    currentWindow = new BrowserWindow({height: 550, x:0, y:0, frame: false, backgroundColor: '#1e1e1e', resizable: false, icon:'ffxivicon.png'});
+    currentWindow = new BrowserWindow({
+        height: 550, x:0, y:0, frame: false, backgroundColor: '#1e1e1e', resizable: false, icon:'ffxivicon.png',
+        webPreferences: {
+            nodeIntegration: true
+        }});
 
     currentWindow.loadURL(url.format({
         pathname: path.join(__dirname,'index.html'),
