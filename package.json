@@ -1,6 +1,6 @@
 {
     "name": "xivdash",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "FFXIV RP Dash",
     "main": "main.js",
     "scripts": {
@@ -9,6 +9,7 @@
         "rebuild": "electron-rebuild -f -w xivdash"
     },
     "author": "Jason Lee",
+    "contributors": ["David Hogue"],
     "license": "MIT",
     "dependencies": {
         "jquery": "^3.4.1"
